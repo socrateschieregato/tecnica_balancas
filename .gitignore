@@ -1,0 +1,5 @@
+venv
+*sqlite3
+*xlsx
+.idea
+tecnica_balancas/__pycache__/
