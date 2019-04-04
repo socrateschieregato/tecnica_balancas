@@ -2,6 +2,5 @@ venv
 *sqlite3
 *xlsx
 .idea
-tecnica_balancas/__pycache__/
-__pycache__
+__pycache__/
 *pyc
