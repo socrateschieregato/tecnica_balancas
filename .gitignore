@@ -3,4 +3,7 @@ venv
 *xlsx
 .idea
 __pycache__/
+apps/empresas/migrations/
+apps/tabelas/migrations/
+apps/calibracoes/migrations/
 *pyc

@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Empresa, Endereco, Telefone
 
-# Register your models here.
+admin.site.register(Endereco)
+admin.site.register(Empresa)
+admin.site.register(Telefone)
+

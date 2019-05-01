@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tecnica Balanças{% endblock %}
+
+{% block main %}
+    <h3 class="text-center">Home</h3>
+    <br/>
+
+    <div id="dialog" title="Bem vindo" width="400">
+        <div data-role="body">
+            Sistema de Controle de Calibrações - Técnica Balanças!
+        </div>
+        <div data-role="footer">
+            <button class="gj-button-md" onclick="dialog.close()">OK</button>
+            <button class="gj-button-md" data-role="close">Cancel</button>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block static %}
+    <script type="text/javascript">
+        var dialog;
+        $(document).ready(function () {
+            dialog = $("#dialog").dialog({
+                resizable: true
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

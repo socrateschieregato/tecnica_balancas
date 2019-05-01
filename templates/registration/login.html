@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Página de Login{% endblock %}
+<head>
+    <link rel="stylesheet" href="../../static/css/login.css">
+</head>
+{% block main %}
+
+<div class="row">
+    <div class="col-4"></div>
+
+    <div class="col-4">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-info">Login</button>
+        </form>
+    </div>
+
+    <div class="col-4"></div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
