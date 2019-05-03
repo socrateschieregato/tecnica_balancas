@@ -1,4 +1,7 @@
 from django.urls import path, include
+from apps.tabelas import views
 
 
-urlpatterns = []
+urlpatterns = [
+    path('', views.tabelas_home, name='tabelas_home')
+]

@@ -1,19 +1,53 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_messages %}
 
 {% block title %}Tecnica Balanças{% endblock %}
 
 {% block main %}
-    <h3 class="text-center">Home</h3>
+    <h2 class="text-center">Técnica Balanças</h2>
     <br/>
+    <br/>
+    <div></div>
 
-    <div id="dialog" title="Bem vindo" width="400">
-        <div data-role="body">
-            Sistema de Controle de Calibrações - Técnica Balanças!
-        </div>
-        <div data-role="footer">
-            <button class="gj-button-md" onclick="dialog.close()">OK</button>
-            <button class="gj-button-md" data-role="close">Cancel</button>
+{#    <div id="dialog" title="Bem vindo" width="400">#}
+{#        <div data-role="body">#}
+{#            Sistema de Controle de Calibrações - Técnica Balanças!#}
+{#        </div>#}
+{#        <div data-role="footer">#}
+{#            <button class="gj-button-md" onclick="dialog.close()">OK</button>#}
+{#            <button class="gj-button-md" data-role="close">Cancel</button>#}
+{#        </div>#}
+{#    </div>#}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+
+            </div>
+            <div class="col">
+                <a href="{% url 'calibracoes_home' %}">
+                    <i class="fas fa-tools fa-5x" style="color: orangered"></i>
+                </a>
+            </div>
+            <div class="col">
+                <a href="{% url '' %}">
+                    <i class="fas fa-users fa-5x" style="color: orangered"></i>
+                </a>
+            </div>
+            <div class="col">
+                <a href="{% url 'tabelas_home' %}">
+                    <i class="fas fa-table fa-5x" style="color: orangered"></i>
+                </a>
+            </div>
+            <div class="col">
+                <a href="{% url 'empresas_home' %}">
+                    <i class="fas fa-building fa-5x" style="color: orangered"></i>
+                </a>
+            </div>
+
         </div>
     </div>
 
