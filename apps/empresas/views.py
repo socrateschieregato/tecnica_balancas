@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 
 def empresas_home(request):
-    return render(request, 'home.html')
+    return render(request, 'empresas_home.html')

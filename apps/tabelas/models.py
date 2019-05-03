@@ -15,6 +15,7 @@ class Cargo(models.Model):
         return self.descricao
 
 class Usuario(models.Model):
+    status_choices = ((1, 'Ativo'), (1, 'Inativo'))
     user = models.OneToOneField(User, on_delete=models.PROTECT)
     cpf = models.CharField('CPF', max_length=11)
     dt_nasc = models.DateField()
@@ -25,6 +26,7 @@ class Usuario(models.Model):
     smtp = models.CharField(max_length=30, null=True, blank=True)
     porta = models.IntegerField(null=True, blank=True)
     ssl = models.BooleanField(null=True, blank=True)
+    status = models.CharField(choices=status_choices, default=1)
 
     def __str__(self):
         return self.user.username
@@ -62,3 +64,9 @@ class Grupo_Empresas(models.Model):
     def __str__(self):
         return self.descricao
 
+class Unidade(models.Model):
+    sigla = models.CharField(max_length=3)
+    descricao = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.descricao
