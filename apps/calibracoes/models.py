@@ -16,7 +16,7 @@ class Conjunto(models.Model):
         return self.descricao
 
 class Desvio(models.Model):
-    valor = models.DecimalField()
+    valor = models.DecimalField(decimal_places=2, max_digits=14)
     un = models.ForeignKey(Unidade, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -36,22 +36,21 @@ class Equipamento(models.Model):
     tipo = models.ForeignKey(Tipo_equipamento, on_delete=models.CASCADE)
     fabricante = models.CharField(max_length=20)
     modelo = models.CharField(max_length=20)
-    escala_ini = models.DecimalField()
-    escala_fim = models.DecimalField()
+    escala_ini = models.DecimalField(decimal_places=2, max_digits=14)
+    escala_fim = models.DecimalField(decimal_places=2, max_digits=14)
     num_serie = models.CharField(max_length=20)
     tag = models.CharField(max_length=10)
-    status = models.CharField(choices=status_choices, default=1)
+    status = models.CharField(choices=status_choices, default=1, max_length=10)
     desvio = models.ForeignKey(Desvio, on_delete=models.PROTECT)
     n_estrategia = models.IntegerField()
     departamento = models.CharField(max_length=20)
-    resolucao_1 = models.DecimalField()
-    resolucao_2 = models.DecimalField()
+    resolucao_1 = models.DecimalField(decimal_places=2, max_digits=14)
+    resolucao_2 = models.DecimalField(decimal_places=2, max_digits=14)
     dt_criacao = models.DateTimeField(auto_now=True)
     usuario = models.ForeignKey(Usuario, models.PROTECT)
 
     def __str__(self):
         return self.tipo.descricao + ' - ' + self.num_registro
-
 
 class Calibracao(models.Model):
     equipamento = models.ForeignKey(Equipamento, on_delete=models.PROTECT)
@@ -61,13 +60,14 @@ class Calibracao(models.Model):
     ajuste = models.CharField(max_length=30)
     obs = models.CharField(max_length=50)
     certificado = models.ForeignKey(Certificado, on_delete=models.PROTECT)
-    pesos = models.ForeignKey()
-    umidade = models.DecimalField()
-    pressao = models.DecimalField()
-    temperatura = models.DecimalField()
+    pesos = models.ManyToManyField('Peso')
+    umidade = models.DecimalField(decimal_places=2, max_digits=14)
+    pressao = models.DecimalField(decimal_places=2, max_digits=14)
+    temperatura = models.DecimalField(decimal_places=2, max_digits=14)
     desvio_adotado = models.CharField(max_length=20)
-    responsavel = models.ForeignKey(Usuario, on_delete=models.PROTECT)
-    tipo_calibracao = models.CharField()
+    responsavel = models.ForeignKey(Usuario, on_delete=models.PROTECT,
+                                    related_name='Calibracao_usuario')
+    tipo_calibracao = models.CharField(max_length=10)
     num_os = models.IntegerField()
     dt_criacao = models.DateTimeField(auto_now=True)
     usuario = models.ForeignKey(Usuario, models.PROTECT)
@@ -88,9 +88,9 @@ class Peso(models.Model):
     erro_2 = models.FloatField()
     dt_calibracao = models.DateField()
     validade = models.DateField()
-    material = models.CharField()
+    material = models.CharField(max_length=20)
     incerteza_mg = models.FloatField()
-    certificado = models.CharField()
+    certificado = models.CharField(max_length=20)
     fator_abrangencia = models.FloatField()
     status = models.BooleanField(default=True)
     unidade = models.ForeignKey(Unidade, on_delete=models.PROTECT)

@@ -26,20 +26,21 @@ class Usuario(models.Model):
     smtp = models.CharField(max_length=30, null=True, blank=True)
     porta = models.IntegerField(null=True, blank=True)
     ssl = models.BooleanField(null=True, blank=True)
-    status = models.CharField(choices=status_choices, default=1)
+    status = models.CharField(choices=status_choices, default=1, max_length=10)
 
     def __str__(self):
         return self.user.username
-
 
 class Pais(models.Model):
     cod_ibge = models.CharField(max_length=15)
     pais = models.CharField(max_length=30)
     sigla = models.CharField(max_length=2)
 
+    class Meta:
+        verbose_name_plural = 'Paises'
+
     def __str__(self):
         return self.pais
-
 
 class Municipio(models.Model):
     cod_ibge = models.CharField(max_length=15)
@@ -47,7 +48,6 @@ class Municipio(models.Model):
 
     def __str__(self):
         return self.municipio
-
 
 class Estado(models.Model):
     cod_ibge = models.CharField(max_length=15)
@@ -57,9 +57,11 @@ class Estado(models.Model):
     def __str__(self):
         return self.estado
 
-
 class Grupo_Empresas(models.Model):
     descricao = models.CharField(max_length=20)
+
+    class Meta:
+        verbose_name_plural = 'Grupo_Empresas'
 
     def __str__(self):
         return self.descricao
