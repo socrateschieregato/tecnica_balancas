@@ -22,7 +22,8 @@ INSTALLED_APPS = [
     'apps.home',
     'apps.tabelas',
     'apps.empresas',
-    'apps.calibracoes'
+    'apps.calibracoes',
+    'apps.equipamentos'
 ]
 
 MIDDLEWARE = [

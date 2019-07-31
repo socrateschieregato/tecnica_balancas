@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% load static %}
+
+{% block title %}Pesquisa{% endblock %}
+
+{% block main %}
+    <br/>
+    <h3 class="text-center">Opções</h3>
+    <br/>
+
+    <form method="post" style="text-align: center">
+        {% csrf_token %}
+        <div class="container-fluid">
+
+            <div class="form-group">
+                <div class="col-md-2 offset-5">
+                    {% bootstrap_form form layout='inline' %}
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Consultar</button>
+                    <a href="{% url 'calib_home' %}">
+                        <button type="button" class="btn btn-danger">Cancelar</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+{% endblock %}
+
+{% block static %}
+    <script>
+        $('.datepicker1').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd/mm/yyyy',
+            locale: 'pt-br',
+            keyboardNavigation: true,
+            modal: true,
+            header: true,
+            {#footer: true,#}
+        });
+        $('.datepicker2').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd/mm/yyyy',
+            locale: 'pt-br',
+            keyboardNavigation: true,
+            modal: true,
+            header: true,
+            {#footer: true,#}
+        });
+    </script>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

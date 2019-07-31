@@ -9,11 +9,16 @@
 {% block main %}
     <h2 class="text-center">Calibrações</h2>
 
+    <a href="{% url 'list_calib' %}">
+        <button class="btn btn-info">Pesquisar</button>
+    </a>
+    <a href="{% url 'cad_calib' %}">
+        <button class="btn btn-info">Calibrar</button>
+    </a>
 
 {% endblock %}
 
 {% block static %}
-
 {% endblock %}
 
 {% block footer %}

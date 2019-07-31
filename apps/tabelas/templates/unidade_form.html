@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_messages %}
+
+{% block title %}{{ tipo }}{% endblock %}
+
+{% block main %}
+    <h3 class="text-center">{{ tipo }}</h3>
+    <br/>
+
+    <form method="post">
+        {% csrf_token %}
+
+            <div class="row">
+                <div class="form-group col">
+                    {% bootstrap_form form %}
+                    {% bootstrap_form_errors form %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Gravar</button>
+                    <a href="{% url 'calibracoes_home' %}">
+                        <button type="button" class="btn btn-danger">Cancelar</button>
+                    </a>
+                </div>
+            </div>
+
+    </form>
+
+
+<script>
+</script>
+
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

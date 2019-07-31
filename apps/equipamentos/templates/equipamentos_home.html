@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_messages %}
+
+{% block title %}Tecnica Balanças{% endblock %}
+
+{% block main %}
+
+    <h2 class="text-center">Equipamentos</h2>
+
+    <table id="Tabela_Equip">
+        <thead>
+            <th>Equipamento</th>
+            <th>
+                <a href="{% url 'cad_equip' %}">
+                    <i class="fas fa-plus fa-2x" style="color: lightgray"></i>
+                </a>
+            </th>
+        </thead>
+        <tbody>
+            <td></td>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+{% endblock %}
+
+{% block static %}
+    <script>
+        $(document).ready( function () {
+            $('#Tabela_Equip').DataTable({
+                data: {{ equip }},
+                columns: [
+                    { title: data[0] },
+                    { title: data[1] },
+                    { title: data[2] },
+                    { title: data[3] },
+                    { title: data[4] },
+                    { title: data[5] }
+                ]
+            });
+        } );
+    </script>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

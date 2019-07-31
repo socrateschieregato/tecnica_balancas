@@ -9,6 +9,7 @@ urlpatterns = [
     path('calibracoes/', include('apps.calibracoes.urls')),
     path('tabelas/', include('apps.tabelas.urls')),
     path('empresas/', include('apps.empresas.urls')),
+    path('equipamentos/', include('apps.equipamentos.urls')),
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view() , name='logout'),
     path('admin/', admin.site.urls),

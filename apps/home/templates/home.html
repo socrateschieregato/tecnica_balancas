@@ -7,7 +7,11 @@
 {% block title %}Tecnica Balanças{% endblock %}
 
 {% block main %}
-    <h2 class="text-center">Técnica Balanças</h2>
+
+    <div class="jumbotron text-center" style="background-color: darkgray">
+        <img src="{% static 'img/TÉCNICA_HORIZONTAL-branco-1.png' %}" alt="tecnica" width=50% height=50%>
+    </div>
+
     <br/>
     <br/>
     <div></div>
@@ -28,23 +32,23 @@
 
             </div>
             <div class="col">
-                <a href="{% url 'calibracoes_home' %}">
-                    <i class="fas fa-tools fa-5x" style="color: orangered"></i>
+                <a href="{% url 'calib_home' %}">
+                    <i class="fas fa-tools fa-5x" style="color: #f99003"></i>
                 </a>
             </div>
             <div class="col">
-                <a href="{% url 'calibracoes_home' %}">
-                    <i class="fas fa-users fa-5x" style="color: orangered"></i>
+                <a href="{% url 'equip_home' %}">
+                    <i class="fas fa-users fa-5x" style="color: #f99003"></i>
                 </a>
             </div>
             <div class="col">
                 <a href="{% url 'tabelas_home' %}">
-                    <i class="fas fa-table fa-5x" style="color: orangered"></i>
+                    <i class="fas fa-table fa-5x" style="color: #f99003"></i>
                 </a>
             </div>
             <div class="col">
                 <a href="{% url 'empresas_home' %}">
-                    <i class="fas fa-building fa-5x" style="color: orangered"></i>
+                    <i class="fas fa-building fa-5x" style="color: #f99003"></i>
                 </a>
             </div>
 

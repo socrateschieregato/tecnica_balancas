@@ -8,11 +8,13 @@ class Departamento(models.Model):
     def __str__(self):
         return self.descricao
 
+
 class Cargo(models.Model):
     descricao = models.CharField(max_length=20)
 
     def __str__(self):
         return self.descricao
+
 
 class Usuario(models.Model):
     status_choices = ((1, 'Ativo'), (1, 'Inativo'))
@@ -31,6 +33,7 @@ class Usuario(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Pais(models.Model):
     cod_ibge = models.CharField(max_length=15)
     pais = models.CharField(max_length=30)
@@ -42,12 +45,6 @@ class Pais(models.Model):
     def __str__(self):
         return self.pais
 
-class Municipio(models.Model):
-    cod_ibge = models.CharField(max_length=15)
-    municipio = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.municipio
 
 class Estado(models.Model):
     cod_ibge = models.CharField(max_length=15)
@@ -56,6 +53,20 @@ class Estado(models.Model):
 
     def __str__(self):
         return self.estado
+
+
+class Municipio(models.Model):
+    cod_ibge = models.CharField(max_length=15)
+    municipio = models.CharField(max_length=30)
+    estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ['estado', 'municipio']
+        ordering = ['municipio']
+
+    def __str__(self):
+        return self.municipio
+
 
 class Grupo_Empresas(models.Model):
     descricao = models.CharField(max_length=20)
@@ -66,9 +77,18 @@ class Grupo_Empresas(models.Model):
     def __str__(self):
         return self.descricao
 
+
 class Unidade(models.Model):
     sigla = models.CharField(max_length=3)
     descricao = models.CharField(max_length=20)
 
     def __str__(self):
         return self.descricao
+
+
+class Desvio(models.Model):
+    valor = models.DecimalField(decimal_places=2, max_digits=14)
+    un = models.ForeignKey(Unidade, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.valor) + ' ' + self.un.descricao

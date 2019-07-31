@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_messages %}
+
+{% block title %}Tabelas{% endblock %}
+
+{% block main %}
+    <h3 class="text-center">Opções</h3>
+    <br/>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+
+                <div class="row">
+                    <div class="form-group col-5">
+                        {% bootstrap_form form %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Consultar</button>
+                        <a href="{% url 'tabelas_home' %}">
+                            <button type="button" class="btn btn-danger">Cancelar</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col"></div>
+
+        </div>
+
+    </form>
+
+
+<script>
+</script>
+
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}
