@@ -1,6 +1,7 @@
+from django.forms import HiddenInput, ModelForm
 from django.utils.translation import gettext_lazy as _
-from django.forms import ModelForm, HiddenInput
-from .models import Tipo_equipamento, Equipamento
+
+from .models import Equipamento, Tipo_equipamento
 
 
 class Tipo_equipamento_form(ModelForm):

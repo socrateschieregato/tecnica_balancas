@@ -1,7 +1,7 @@
 from django.db import models
-from apps.empresas.models import Empresa
-from apps.tabelas.models import Unidade, Usuario
+
 from apps.equipamentos.models import Equipamento
+from apps.tabelas.models import Unidade, Usuario
 
 
 class Conjunto(models.Model):
@@ -40,8 +40,7 @@ class Calibracao(models.Model):
     usuario = models.ForeignKey(Usuario, models.PROTECT)
 
     def __str__(self):
-        return self.equipamento.empresa.nome_fantasia + ' - '\
-               + self.equipamento.tipo.descricao + ' ' + str(self.dt_calib)
+        return f'{self.equipamento.empresa.nome_fantasia} {self.equipamento.tipo.descricao} {str(self.dt_calib)}'  # noqa
 
 
 class Peso(models.Model):
@@ -66,5 +65,4 @@ class Peso(models.Model):
     usuario = models.ForeignKey(Usuario, models.PROTECT)
 
     def __str__(self):
-        return self.conjunto.descricao + ' - ' + str(self.massa_nominal_g)\
-               + ' ' + self.unidade.sigla
+        return f'{self.conjunto.descricao} - {str(self.massa_nominal_g)} {self.unidade.sigla}'  # noqa

@@ -1,6 +1,16 @@
 from django.contrib import admin
-from apps.tabelas.models import *
 
+from .models import (
+    Cargo,
+    Departamento,
+    Desvio,
+    Estado,
+    Grupo_Empresas,
+    Municipio,
+    Pais,
+    Unidade,
+    Usuario
+)
 
 admin.site.register(Cargo)
 admin.site.register(Departamento)
@@ -10,3 +20,4 @@ admin.site.register(Pais)
 admin.site.register(Usuario)
 admin.site.register(Unidade)
 admin.site.register(Estado)
+admin.site.register(Desvio)

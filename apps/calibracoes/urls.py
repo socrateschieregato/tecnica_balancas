@@ -1,6 +1,6 @@
-from django.urls import path, include
-from apps.calibracoes import views
+from django.urls import path
 
+from apps.calibracoes import views
 
 urlpatterns = [
     path('', views.calib_home, name='calib_home'),

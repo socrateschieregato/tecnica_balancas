@@ -1,6 +1,16 @@
-from django import forms
 from django.forms import ModelForm
-from .models import *
+
+from .models import (
+    Cargo,
+    Departamento,
+    Desvio,
+    Estado,
+    Grupo_Empresas,
+    Municipio,
+    Pais,
+    Unidade,
+    Usuario
+)
 
 
 class Estado_form(ModelForm):

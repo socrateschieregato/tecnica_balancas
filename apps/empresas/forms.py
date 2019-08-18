@@ -1,5 +1,6 @@
-from django.forms import ModelForm, HiddenInput
+from django.forms import HiddenInput, ModelForm
 from django.utils.translation import gettext_lazy as _
+
 from .models import Empresa, Endereco, Telefone
 
 
@@ -14,6 +15,7 @@ class Empresa_form(ModelForm):
         #     'empresa': _(''),
         # }
 
+
 class Endereco_form(ModelForm):
     class Meta:
         model = Endereco
@@ -24,6 +26,7 @@ class Endereco_form(ModelForm):
         labels = {
             'empresa': _(''),
         }
+
 
 class Telefone_form(ModelForm):
     class Meta:

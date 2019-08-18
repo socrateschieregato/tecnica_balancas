@@ -2,6 +2,7 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% load static %}
+{% bootstrap_messages %}
 
 {% block title %}Pesquisa{% endblock %}
 
@@ -10,23 +11,24 @@
     <h3 class="text-center">Opções</h3>
     <br/>
 
-    <form method="post" style="text-align: center">
+    <form method="post">
         {% csrf_token %}
         <div class="container-fluid">
 
             <div class="form-group">
                 <div class="col-md-2 offset-5">
                     {% bootstrap_form form layout='inline' %}
+                    {% bootstrap_form_errors form %}
                 </div>
             </div>
 
             <br/>
 
             <div class="row">
-                <div class="col">
+                <div class="col-md-4 offset-5">
                     <button type="submit" class="btn btn-primary">Consultar</button>
                     <a href="{% url 'calib_home' %}">
-                        <button type="button" class="btn btn-danger">Cancelar</button>
+                        <button type="button" class="btn btn-danger">Voltar</button>
                     </a>
                 </div>
             </div>
@@ -47,6 +49,10 @@
             modal: true,
             header: true,
             {#footer: true,#}
+            maxDate: function () {
+                return $('#id_fim').val();
+            }
+
         });
         $('.datepicker2').datepicker({
             uiLibrary: 'bootstrap4',
@@ -56,6 +62,9 @@
             modal: true,
             header: true,
             {#footer: true,#}
+            minDate: function () {
+                return $('#id_inicio').val();
+            }
         });
     </script>
 {% endblock %}

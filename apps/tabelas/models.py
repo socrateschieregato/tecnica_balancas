@@ -24,7 +24,12 @@ class Usuario(models.Model):
     dt_desligamento = models.DateField()
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
     cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)
-    foto = models.ImageField(width_field=50, height_field=50, null=True, blank=True)
+    foto = models.ImageField(
+        width_field=50,
+        height_field=50,
+        null=True,
+        blank=True
+    )
     smtp = models.CharField(max_length=30, null=True, blank=True)
     porta = models.IntegerField(null=True, blank=True)
     ssl = models.BooleanField(null=True, blank=True)

@@ -1,5 +1,6 @@
-from django.forms import ModelForm
 from django import forms
+from django.forms import ModelForm
+
 from .models import Calibracao, Certificado, Conjunto, Peso
 
 
@@ -13,7 +14,7 @@ class Pesquisa_form(forms.Form):
     fim = forms.DateField(
         input_formats=['%d/%m/%Y', '%d/%m/%y'],
         widget=forms.TextInput(
-            attrs={'class':'datepicker2'}
+            attrs={'class': 'datepicker2'}
         )
     )
 

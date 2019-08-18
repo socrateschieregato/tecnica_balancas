@@ -1,0 +1,64 @@
+message=$(shell git log --oneline -1)
+
+clean:
+	@find . -name "*.pyc" | xargs rm -rf
+	@find . -name "*.pyo" | xargs rm -rf
+	@find . -name "__pycache__" -type d | xargs rm -rf
+	@rm -f .coverage
+	@rm -rf htmlcov/
+	@rm -f coverage.xml
+	@rm -f *.log
+	@rm -rf docs/build/
+
+test: clean
+	@py.test -x tecnica_balancas
+
+test-debug: clean
+	@py.test --pdb -x tecnica_balancas
+
+test-matching: clean
+	@py.test --pdb tecnica_balancas -k $(k)
+
+flake8:
+	@flake8 --show-source .
+
+coverage: clean
+	@py.test -x --cov django/giba --cov-config=.coveragerc --cov-report=term django/giba --cov-report=html --cov-report=xml
+
+detect-migrations:
+	@django/manage.py makemigrations --dry-run --noinput --settings=giba.settings.test | grep 'No changes detected' -q || (echo 'Missing migration detected!' && exit 1)
+
+dependencies:
+	@pip install -U -r django/requirements/development.txt
+
+database-tables:
+	@django/manage.py migrate
+
+makemigrations:
+	@django/manage.py makemigrations
+
+superuser:
+	@django/manage.py createsuperuser
+
+run:
+	@django/manage.py runserver
+
+shell:
+	@django/manage.py shell
+
+run-celery:
+	@PYTHONPATH=django celery -A tecnica_balancas worker -l info
+
+run-celery-beat:
+	@PYTHONPATH=django celery -A tecnica_balancas.celery beat -l info -S django
+
+check-python-import:
+	@isort --check
+
+fix-python-import:
+	@isort -rc .
+
+lint: clean flake8 check-python-import
+
+outdated: ## Show outdated dependencies
+	@pip list --outdated --format=columns

@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from django.contrib.auth import get_user
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+
 from .forms import Calibracao_form, Pesquisa_form
 from .models import Calibracao
 
@@ -17,11 +17,18 @@ def list_calib(request):
     if form.is_valid():
         inicio = form.data['inicio']
         fim = form.data['fim']
-        calibracoes = Calibracao.objects.filter(dt_calib__gte=inicio, dt_calib__lte=fim)
+        calibracoes = Calibracao.objects.filter(
+            dt_calib__gte=inicio,
+            dt_calib__lte=fim
+        )
 
-        return render(request, 'calibracoes_list.html', {'calibracoes':calibracoes})
+        return render(
+            request,
+            'calibracoes_list.html',
+            {'calibracoes': calibracoes}
+        )
 
-    return render(request,'pesquisa_form.html', {'form': form})
+    return render(request, 'pesquisa_form.html', {'form': form})
 
 
 @login_required
@@ -34,13 +41,11 @@ def cad_calib(request):
 
         return render(request, 'calibracoes_home.html', {'tipo': tipo})
 
-    return render(request,
-                  'calibracoes_form.html',
-                  {
-                      'form': form,
-                      'tipo': tipo,
-                  }
-                 )
-
-
-
+    return render(
+        request,
+        'calibracoes_form.html',
+        {
+            'form': form,
+            'tipo': tipo,
+        }
+    )
