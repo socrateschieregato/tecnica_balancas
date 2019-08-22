@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
@@ -15,8 +17,16 @@ def list_calib(request):
     form = Pesquisa_form(request.POST or None)
 
     if form.is_valid():
-        inicio = form.data['inicio']
-        fim = form.data['fim']
+        inicio = date(
+            int(form.data['inicio'][6:10]),
+            int(form.data['inicio'][3:5]),
+            int(form.data['inicio'][0:2]),
+        )
+        fim = date(
+            int(form.data['fim'][6:10]),
+            int(form.data['fim'][3:5]),
+            int(form.data['fim'][0:2]),
+        )
         calibracoes = Calibracao.objects.filter(
             dt_calib__gte=inicio,
             dt_calib__lte=fim

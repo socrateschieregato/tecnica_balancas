@@ -21,12 +21,16 @@ class Equipamento(models.Model):
     escala_ini = models.DecimalField(
         'Escala Inicial',
         decimal_places=2,
-        max_digits=14
+        max_digits=14,
+        null=True,
+        blank=True
     )
     escala_fim = models.DecimalField(
         'Escala Final',
         decimal_places=2,
-        max_digits=14
+        max_digits=14,
+        null=True,
+        blank=True
     )
     num_serie = models.CharField('Número de Série', max_length=20)
     tag = models.CharField(max_length=10)
@@ -42,12 +46,16 @@ class Equipamento(models.Model):
     resolucao_1 = models.DecimalField(
         'Resolução 1',
         decimal_places=2,
-        max_digits=14
+        max_digits=14,
+        null=True,
+        blank=True
     )
     resolucao_2 = models.DecimalField(
         'Resolução 2',
         decimal_places=2,
-        max_digits=14
+        max_digits=14,
+        null=True,
+        blank=True
     )
     dt_criacao = models.DateTimeField(auto_now=True)
     usuario = models.ForeignKey(Usuario, models.PROTECT)

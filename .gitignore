@@ -2,8 +2,7 @@ venv
 *sqlite3
 *xlsx
 .idea
-__pycache__/
-apps/empresas/migrations/
-apps/tabelas/migrations/
-apps/calibracoes/migrations/
+__pycache__
 *pyc
+migrations
+

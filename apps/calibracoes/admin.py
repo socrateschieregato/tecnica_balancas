@@ -9,3 +9,8 @@ admin.site.register(Certificado)
 admin.site.register(Equipamento)
 admin.site.register(Tipo_equipamento)
 admin.site.register(Calibracao)
+
+
+class CalibracaoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'dt_calib', 'equipamento')
+    list_filter = ('dt_calib', 'pesos')
