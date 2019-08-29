@@ -17,11 +17,11 @@ class Cargo(models.Model):
 
 
 class Usuario(models.Model):
-    status_choices = ((1, 'Ativo'), (1, 'Inativo'))
+    status_choices = (('1', 'Ativo'), ('2', 'Inativo'))
     user = models.OneToOneField(User, on_delete=models.PROTECT)
     cpf = models.CharField('CPF', max_length=11)
     dt_nasc = models.DateField()
-    dt_desligamento = models.DateField()
+    dt_desligamento = models.DateField(null=True, blank=True)
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
     cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)
     foto = models.ImageField(

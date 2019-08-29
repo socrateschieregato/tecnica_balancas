@@ -12,7 +12,7 @@ class Tipo_equipamento(models.Model):
 
 
 class Equipamento(models.Model):
-    status_choices = ((1, 'Ativo'), (1, 'Inativo'), (1, 'Pendente'))
+    status_choices = (('1', 'Ativo'), ('2', 'Inativo'), ('3', 'Pendente'))
     empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT)
     num_registro = models.CharField('Número de Registro', max_length=20)
     tipo = models.ForeignKey(Tipo_equipamento, on_delete=models.CASCADE)

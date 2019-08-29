@@ -14,9 +14,11 @@
         {% csrf_token %}
 
             <div class="row">
-                <div class="form-group col">
-                    {% bootstrap_form form %}
-                    {% bootstrap_form_errors form %}
+                <div class="col-md-6 offset-3">
+                    <div class="form-group col">
+                        {% bootstrap_form form %}
+                        {% bootstrap_form_errors form %}
+                    </div>
                 </div>
             </div>
 

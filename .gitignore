@@ -2,7 +2,10 @@ venv
 *sqlite3
 *xlsx
 .idea
-__pycache__
-*pyc
 migrations
-
+*/*/*/__pycache__/
+*/*/__pycache__/
+*/__pycache__/
+*.log
+*.pot
+*.pyc

@@ -34,7 +34,11 @@
             <a class="menu active" href="/">Início</a>
             <a class="menu" href="{% url 'calib_home' %}">Calibrações</a>
             <a class="menu" href="{% url 'equip_home' %}">Equipamentos</a>
-            <a class="menu" href="{% url 'tabelas_home' %}">Configurações</a>
+            <a href="" onClick="javascript:window.open (
+                '/admin/', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes'
+                )">
+                Configurações
+            </a>
             <a class="menu" href="{% url 'empresas_home' %}">Clientes</a>
         </div>
 

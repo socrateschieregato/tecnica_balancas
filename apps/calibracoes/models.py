@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 
 from apps.equipamentos.models import Equipamento
@@ -16,7 +18,7 @@ class Certificado(models.Model):
     data = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.numero + ' ' + str(self.data)
+        return self.numero + ' ' + (self.data).strftime("%d/%m/%Y")
 
 
 class Calibracao(models.Model):
@@ -38,6 +40,9 @@ class Calibracao(models.Model):
     num_os = models.IntegerField('Número OS')
     dt_criacao = models.DateTimeField(auto_now=True)
     usuario = models.ForeignKey(Usuario, models.PROTECT)
+
+    class Meta:
+        verbose_name_plural = 'Calibracoes'
 
     def __str__(self):
         return f'{self.equipamento.empresa.nome_fantasia} {self.equipamento.tipo.descricao} {str(self.dt_calib)}'  # noqa
