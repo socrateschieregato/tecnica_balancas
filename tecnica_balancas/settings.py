@@ -20,8 +20,10 @@ INSTALLED_APPS = [
     'apps.home',
     'apps.tabelas',
     'apps.empresas',
+    'apps.frontend',
     'apps.calibracoes',
-    'apps.equipamentos'
+    'apps.equipamentos',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
