@@ -1,6 +1,7 @@
 venv
 *sqlite3
 *xlsx
+*pdf
 .idea
 migrations
 */*/*/__pycache__/
@@ -9,3 +10,4 @@ migrations
 *.log
 *.pot
 *.pyc
+node_modules/
