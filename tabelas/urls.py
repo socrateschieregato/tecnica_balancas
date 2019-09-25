@@ -1,6 +1,6 @@
 from django.urls import path
 
-from apps.tabelas import views
+from tabelas import views
 
 urlpatterns = [
     path('', views.tabelas_home, name='tabelas_home'),

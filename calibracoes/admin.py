@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.calibracoes.models import (
+from calibracoes.models import (
     Calibracao,
     Certificado,
     Conjunto,

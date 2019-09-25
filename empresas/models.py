@@ -1,6 +1,6 @@
 from django.db import models
 
-from apps.tabelas.models import Estado, Grupo_Empresas, Municipio, Pais
+from tabelas.models import Estado, Grupo_Empresas, Municipio, Pais
 
 
 class Empresa(models.Model):

@@ -17,12 +17,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
-    'apps.home',
-    'apps.tabelas',
-    'apps.empresas',
-    'apps.frontend',
-    'apps.calibracoes',
-    'apps.equipamentos',
+    'home',
+    'tabelas',
+    'empresas',
+    'frontend',
+    'calibracoes',
+    'equipamentos',
     'rest_framework'
 ]
 

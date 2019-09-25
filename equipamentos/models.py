@@ -1,7 +1,7 @@
 from django.db import models
 
-from apps.empresas.models import Empresa
-from apps.tabelas.models import Desvio, Usuario
+from empresas.models import Empresa
+from tabelas.models import Desvio, Usuario
 
 
 class Tipo_equipamento(models.Model):

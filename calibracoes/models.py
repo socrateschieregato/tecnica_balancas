@@ -1,7 +1,7 @@
 from django.db import models
 
-from apps.equipamentos.models import Equipamento
-from apps.tabelas.models import Unidade, Usuario
+from equipamentos.models import Equipamento
+from tabelas.models import Unidade, Usuario
 
 
 class Conjunto(models.Model):
