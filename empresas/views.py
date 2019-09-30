@@ -2,7 +2,7 @@ from django.contrib.auth import get_user
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import get_object_or_404, redirect, render
 
-from apps.tabelas.models import Estado, Municipio, Pais
+from tabelas.models import Estado, Municipio, Pais
 
 from .forms import Empresa_form, Endereco_form, Telefone_form
 from .models import Empresa, Endereco, Telefone

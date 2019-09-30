@@ -1,9 +1,7 @@
-import datetime
-
 from django.db import models
 
-from apps.equipamentos.models import Equipamento
-from apps.tabelas.models import Unidade, Usuario
+from equipamentos.models import Equipamento
+from tabelas.models import Unidade, Usuario
 
 
 class Conjunto(models.Model):
@@ -26,18 +24,20 @@ class Calibracao(models.Model):
     periodicidade = models.IntegerField()
     dt_calib = models.DateField('Data Calibração', auto_now=True)
     dt_calib_next = models.DateField('Próxima Calibração')
-    ajuste = models.CharField(max_length=30)
-    obs = models.CharField(max_length=50)
+    ajuste = models.CharField(max_length=30, null=True, blank=True)
+    obs = models.CharField(max_length=50, null=True, blank=True)
     certificado = models.ForeignKey(Certificado, on_delete=models.PROTECT)
     pesos = models.ManyToManyField('Peso')
-    umidade = models.DecimalField(decimal_places=2, max_digits=14)
-    pressao = models.DecimalField(decimal_places=2, max_digits=14)
-    temperatura = models.DecimalField(decimal_places=2, max_digits=14)
-    desvio_adotado = models.CharField('Desvio Adotado', max_length=20)
-    responsavel = models.ForeignKey(Usuario, on_delete=models.PROTECT,
-                                    related_name='Calibracao_usuario')
-    tipo_calibracao = models.CharField(max_length=10)
-    num_os = models.IntegerField('Número OS')
+    umidade = models.DecimalField(decimal_places=2, max_digits=14, null=True, blank=True)
+    pressao = models.DecimalField(decimal_places=2, max_digits=14, null=True, blank=True)
+    temperatura = models.DecimalField(decimal_places=2, max_digits=14, null=True, blank=True)
+    desvio_adotado = models.CharField('Desvio Adotado', max_length=20, null=True, blank=True)
+    responsavel = models.ForeignKey(
+        Usuario, on_delete=models.PROTECT,
+        related_name='Calibracao_usuario',
+    )
+    tipo_calibracao = models.CharField(max_length=10, null=True, blank=True)
+    num_os = models.IntegerField('Número OS', null=True, blank=True)
     dt_criacao = models.DateTimeField(auto_now=True)
     usuario = models.ForeignKey(Usuario, models.PROTECT)
 
@@ -51,7 +51,7 @@ class Calibracao(models.Model):
 class Peso(models.Model):
     massa_nominal_g = models.FloatField()
     marcacao = models.CharField(max_length=20)
-    classe = models.CharField(max_length=20)
+    classe = models.CharField(max_length=20, null=True, blank=True)
     identificacao = models.CharField(max_length=20)
     conjunto = models.ForeignKey(Conjunto, on_delete=models.PROTECT)
     massa_conv_mg_1 = models.FloatField()

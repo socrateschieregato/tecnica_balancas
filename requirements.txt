@@ -1,6 +1,8 @@
 Django==2.2
 django-bootstrap4==0.0.8
 django-forms-bootstrap==3.1.0
+django-suit==0.2.26
+djangorestframework==3.10.3
 Pillow==6.0.0
 pytz==2018.9
 sqlparse==0.3.0

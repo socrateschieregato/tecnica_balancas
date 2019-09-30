@@ -1,6 +1,6 @@
 from django.urls import path
 
-from apps.equipamentos import views
+from equipamentos import views
 
 urlpatterns = [
     path('', views.equip_home, name='equip_home'),
