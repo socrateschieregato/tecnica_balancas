@@ -20,10 +20,11 @@ INSTALLED_APPS = [
     'home',
     'tabelas',
     'empresas',
-    'frontend',
+    'api',
     'calibracoes',
     'equipamentos',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -60,6 +61,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+REST_FRAMEWORK = {
+    'DEFUALT_PERMISSION_CLASSES': {
+        'rest_framework.permissions.IsAuthenticated'
     }
 }
 

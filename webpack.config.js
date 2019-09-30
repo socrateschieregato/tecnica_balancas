@@ -1,5 +1,5 @@
 module.exports = {
-  // entry: './apps/frontend/src/index.js',
+  // entry: './apps/api/src/index.js',
   module: {
     rules: [
       {
