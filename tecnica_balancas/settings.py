@@ -17,19 +17,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'corsheaders',
     'home',
     'tabelas',
     'empresas',
     'api',
     'calibracoes',
-    'equipamentos',
-    'rest_framework',
-    'rest_framework.authtoken'
+    'equipamentos'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -133,3 +135,7 @@ SUIT_CONFIG = {
     # misc
     'LIST_PER_PAGE': 15
 }
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000"
+]
