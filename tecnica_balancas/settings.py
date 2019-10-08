@@ -2,11 +2,11 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = ')$=8)k*4q-jia#o8rmffg6ssgyw_qqs8fe_ji049gc9+%sh3wn'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://tecnica-balancas.herokuapp.com/']
 
 INSTALLED_APPS = [
     'suit',
