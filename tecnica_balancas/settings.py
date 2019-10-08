@@ -9,7 +9,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['https://tecnica-balancas.herokuapp.com/']
 
 INSTALLED_APPS = [
-    'suit',
+    # 'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
