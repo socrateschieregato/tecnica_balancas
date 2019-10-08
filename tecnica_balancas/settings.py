@@ -6,7 +6,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://tecnica-balancas.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'https://tecnica-balancas.herokuapp.com/']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
