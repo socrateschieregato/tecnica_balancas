@@ -10,3 +10,5 @@ venv
 *.pot
 *.pyc
 node_modules/
+*.env
+planilhas

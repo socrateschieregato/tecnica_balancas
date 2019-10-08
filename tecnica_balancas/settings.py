@@ -2,14 +2,13 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = ')$=8)k*4q-jia#o8rmffg6ssgyw_qqs8fe_ji049gc9+%sh3wn'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'https://tecnica-balancas.herokuapp.com/']
 
 INSTALLED_APPS = [
-    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -17,19 +16,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'corsheaders',
     'home',
     'tabelas',
     'empresas',
     'api',
     'calibracoes',
-    'equipamentos',
-    'rest_framework',
-    'rest_framework.authtoken'
+    'equipamentos'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -104,32 +105,6 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = 'home'
 
-# Django Suit configuration example
-SUIT_CONFIG = {
-    # header
-    'ADMIN_NAME': 'Técnica Balanças',
-    'HEADER_DATE_FORMAT': 'l, j, F Y',
-    'HEADER_TIME_FORMAT': 'H:i',
-
-    # forms
-    'SHOW_REQUIRED_ASTERISK': True,  # Default True
-    'CONFIRM_UNSAVED_CHANGES': True, # Default True
-
-    # menu
-    'SEARCH_URL': '/admin/auth/user/',
-    'MENU_ICONS': {
-       'sites': 'icon-leaf',
-       'auth': 'icon-lock',
-    },
-    'MENU_OPEN_FIRST_CHILD': True, # Default True
-    'MENU_EXCLUDE': ('auth.group',),
-    'MENU': (
-        'sites',
-        {'app': 'auth', 'icon':'icon-lock', 'models': ('user', 'group')},
-        {'label': 'Settings', 'icon':'icon-cog', 'models': ('auth.user', 'auth.group')},
-        {'label': 'Support', 'icon':'icon-question-sign', 'url': '/support/'},
-    ),
-
-    # misc
-    'LIST_PER_PAGE': 15
-}
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000"
+]
