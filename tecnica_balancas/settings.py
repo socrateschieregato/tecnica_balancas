@@ -19,7 +19,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    'home',
     'tabelas',
     'empresas',
     'api',
@@ -102,8 +101,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
 ]
-
-LOGIN_REDIRECT_URL = 'home'
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000"
