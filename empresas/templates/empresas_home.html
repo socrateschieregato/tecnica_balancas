@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_messages %}
+
+{% block title %}Tecnica Balanças{% endblock %}
+
+{% block main %}
+    <br/>
+    <h2 class="text-center">Empresas</h2>
+    <br/>
+    <table class="table table-hover">
+        <thead>
+            <th>CNPJ/CPF</th>
+            <th style="width: 40%">Nome/Razão</th>
+            <th style="width: 40%">E-mail</th>
+            <th style="width: 10%; text-align: right""></th>
+            <th style="width: 10%; text-align: right">
+                <a href="{% url 'cad_empresa' %}">
+                    <i class="fas fa-plus fa-2x" style="color: lightgray"></i>
+                </a>
+            </th>
+        </thead>
+        <tbody>
+            {% for empresa in empresas %}
+                <tr>
+                    <td>{{ empresa.cpf_cnpj }}</td>
+                    <td>{{ empresa.nome_razao }}</td>
+                    <td>{{ empresa.email }}</td>
+                    <td style="width: 10%; text-align: right">
+                        <a href="{% url 'upd_empresa' empresa.id %}">
+                            <i class="far fa-edit fa-2x" style="color: lightgray"></i>
+                        </a>
+                    </td>
+                    <td style="width: 10%; text-align: right">
+                        <a href="{% url 'del_empresa' empresa.id %}">
+                            <i class="far fa-trash-alt fa-2x" style="color: lightgray"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+
+{% endblock %}
+
+{% block static %}
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

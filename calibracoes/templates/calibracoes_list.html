@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_messages %}
+
+{% block title %}Tecnica Balanças{% endblock %}
+
+{% block main %}
+    <h2 class="text-center">Calibrações</h2>
+    <table id="Tabela_Calib">
+        <thead>
+            <th></th>
+        </thead>
+        <tbody>
+            <td></td>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+{% endblock %}
+
+{% block static %}
+    <script>
+        $(document).ready( function () {
+            $('#Tabela_Calib').DataTable({
+                data: {{ calibracoes }},
+                columns: [
+                    { title: data[0] },
+                    { title: data[1] },
+                    { title: data[2] },
+                    { title: data[3] },
+                    { title: data[4] },
+                    { title: data[5] }
+                ]
+            });
+        } );
+    </script>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

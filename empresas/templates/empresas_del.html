@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block title %}Deletar Empresa{% endblock %}
+
+{% block main %}
+    <br/>
+    <h4 style="text-align: center">Tem certeza que deseja deletar?</h4>
+    <p style="text-align: center">{{empresa.nome_fantasia}}</p>
+    <br/>
+    <form method="post" enctype="multipart/form-data" style="text-align: center">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Excluir</button>
+    </form>
+{% endblock %}
