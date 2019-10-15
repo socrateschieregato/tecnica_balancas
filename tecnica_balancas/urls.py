@@ -7,5 +7,6 @@ from rest_framework.authtoken.views import obtain_auth_token
 urlpatterns = [
     path('', include('api.urls')),
     path('auth/', obtain_auth_token),
+    path('tabelas/', include('tabelas.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
