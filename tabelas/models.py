@@ -53,7 +53,7 @@ class Pais(models.Model):
 
 class Estado(models.Model):
     cod_ibge = models.CharField(max_length=15)
-    estado = models.CharField(max_length=30)
+    estado = models.CharField(max_length=50)
     sigla = models.CharField(max_length=2)
 
     def __str__(self):
@@ -62,7 +62,7 @@ class Estado(models.Model):
 
 class Municipio(models.Model):
     cod_ibge = models.CharField(max_length=15)
-    municipio = models.CharField(max_length=30)
+    municipio = models.CharField(max_length=50)
     estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
 
     class Meta:
