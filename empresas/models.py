@@ -1,6 +1,6 @@
 from django.db import models
 
-from tabelas.models import Estado, Grupo_Empresas, Municipio, Pais
+from tabelas.models import Grupo_Empresas
 
 
 tipos_tel = (('1', 'Fone'), ('2', 'Cel'), ('3', 'Outro'))
@@ -31,9 +31,9 @@ class Empresa(models.Model):
     bairro = models.CharField(max_length=30, null=True, blank=True)
     complemento = models.CharField(max_length=30, null=True, blank=True)
     cep = models.CharField(max_length=9, null=True, blank=True)
-    uf = models.ForeignKey(Estado, on_delete=models.PROTECT, null=True, blank=True)
-    pais = models.ForeignKey(Pais, on_delete=models.PROTECT, null=True, blank=True)
-    municipio = models.ForeignKey(Municipio, on_delete=models.PROTECT, null=True, blank=True)
+    uf = models.CharField(max_length=2, null=True, blank=True)
+    pais = models.CharField(max_length=30, null=True, blank=True)
+    municipio = models.CharField(max_length=50, null=True, blank=True)
     tipo = models.CharField(max_length=10, choices=tipos_tel, default='1', null=True, blank=True)
     ddd = models.CharField('DDD', max_length=2, null=True, blank=True)
     num_tel = models.CharField(max_length=10, null=True, blank=True)
