@@ -7,7 +7,14 @@ from api.serializers import (
     EmpresaSerializer,
     UserSerializer,
     EquipamentoSerializer,
-    TipoEquipamentoSerializer, UnidadeSerializer, DesvioSerializer)
+    TipoEquipamentoSerializer,
+    UnidadeSerializer,
+    DesvioSerializer,
+    PesoSerializer,
+    CertificadoSerializer,
+    CalibracaoSerializer
+)
+from calibracoes.models import Peso, Certificado, Calibracao
 from empresas.models import Empresa
 from equipamentos.models import Equipamento, Tipo_equipamento
 from tabelas.models import Unidade, Desvio
@@ -53,6 +60,27 @@ class UnidadeViewSet(viewsets.ModelViewSet):
 class DesvioViewSet(viewsets.ModelViewSet):
     queryset = Desvio.objects.all()
     serializer_class = DesvioSerializer
+    authentication_classes = token
+    permission_classes = permission
+
+
+class PesoViewSet(viewsets.ModelViewSet):
+    queryset = Peso.objects.all()
+    serializer_class = PesoSerializer
+    authentication_classes = token
+    permission_classes = permission
+
+
+class CertificadoViewSet(viewsets.ModelViewSet):
+    queryset = Certificado.objects.all()
+    serializer_class = CertificadoSerializer
+    authentication_classes = token
+    permission_classes = permission
+
+
+class CalibracaoViewSet(viewsets.ModelViewSet):
+    queryset = Calibracao.objects.all()
+    serializer_class = CalibracaoSerializer
     authentication_classes = token
     permission_classes = permission
 

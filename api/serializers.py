@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 
+from calibracoes.models import Peso, Certificado, Calibracao
 from empresas.models import Empresa
 from equipamentos.models import Equipamento, Tipo_equipamento
 from tabelas.models import Unidade, Desvio
@@ -46,4 +47,22 @@ class UnidadeSerializer(serializers.ModelSerializer):
 class DesvioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Desvio
+        fields = '__all__'
+
+
+class PesoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Peso
+        fields = '__all__'
+
+
+class CertificadoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Certificado
+        fields = '__all__'
+
+
+class CalibracaoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Calibracao
         fields = '__all__'
