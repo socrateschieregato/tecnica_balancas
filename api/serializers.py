@@ -4,8 +4,8 @@ from rest_framework.authtoken.models import Token
 
 from calibracoes.models import Peso, Certificado, Calibracao
 from empresas.models import Empresa
-from equipamentos.models import Equipamento, Tipo_equipamento
-from tabelas.models import Unidade, Desvio
+from equipamentos.models import Equipamento
+from tabelas.models import Desvio
 
 
 class EmpresaSerializer(serializers.ModelSerializer):
@@ -29,18 +29,6 @@ class UserSerializer(serializers.ModelSerializer):
 class EquipamentoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Equipamento
-        fields = '__all__'
-
-
-class TipoEquipamentoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tipo_equipamento
-        fields = '__all__'
-
-
-class UnidadeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Unidade
         fields = '__all__'
 
 

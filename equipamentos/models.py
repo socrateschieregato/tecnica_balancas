@@ -15,22 +15,22 @@ class Tipo_equipamento(models.Model):
 class Equipamento(models.Model):
     status_choices = (('1', 'Ativo'), ('2', 'Inativo'), ('3', 'Pendente'))
     empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT)
-    num_registro = models.CharField('Número de Registro', max_length=20)
-    tipo = models.ForeignKey(Tipo_equipamento, on_delete=models.CASCADE)
-    fabricante = models.CharField(max_length=20)
-    modelo = models.CharField(max_length=20)
+    num_registro = models.CharField('Número de Registro', max_length=20, null=True, blank=True)
+    tipo = models.ForeignKey(Tipo_equipamento, on_delete=models.CASCADE, null=True, blank=True)
+    fabricante = models.CharField(max_length=20, null=True, blank=True)
+    modelo = models.CharField(max_length=20, null=True, blank=True)
     escala = models.CharField(max_length=30, null=True, blank=True)
-    num_serie = models.CharField('Número de Série', max_length=20)
-    tag = models.CharField(max_length=10)
+    num_serie = models.CharField('Número de Série', max_length=20, null=True, blank=True)
+    tag = models.CharField(max_length=10, null=True, blank=True)
     status = models.CharField(
         'Status',
         choices=status_choices,
         default=1,
         max_length=10
     )
-    desvio = models.ForeignKey(Desvio, on_delete=models.PROTECT)
-    n_estrategia = models.IntegerField()
-    departamento = models.CharField('Departamento', max_length=20)
+    desvio = models.ForeignKey(Desvio, on_delete=models.PROTECT, null=True, blank=True)
+    n_estrategia = models.IntegerField(null=True, blank=True)
+    departamento = models.CharField('Departamento', max_length=20, null=True, blank=True)
     resolucao_1 = models.DecimalField(
         'Resolução 1',
         decimal_places=2,
