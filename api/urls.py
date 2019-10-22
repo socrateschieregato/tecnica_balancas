@@ -7,7 +7,10 @@ from api.views import (
     EquipamentoViewSet,
     TipoEquipamentoViewSet,
     UnidadeViewSet,
-    DesvioViewSet
+    DesvioViewSet,
+    PesoViewSet,
+    CertificadoViewSet,
+    CalibracaoViewSet
 )
 
 router = routers.DefaultRouter()
