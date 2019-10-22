@@ -1,7 +1,8 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 from equipamentos.models import Equipamento
-from tabelas.models import Unidade, Usuario
+from tabelas.models import Unidade
 
 
 class Conjunto(models.Model):
@@ -33,13 +34,14 @@ class Calibracao(models.Model):
     temperatura = models.DecimalField(decimal_places=2, max_digits=14, null=True, blank=True)
     desvio_adotado = models.CharField('Desvio Adotado', max_length=20, null=True, blank=True)
     responsavel = models.ForeignKey(
-        Usuario, on_delete=models.PROTECT,
+        User, on_delete=models.PROTECT,
         related_name='Calibracao_usuario',
     )
     tipo_calibracao = models.CharField(max_length=10, null=True, blank=True)
     num_os = models.IntegerField('Número OS', null=True, blank=True)
     dt_criacao = models.DateTimeField(auto_now=True)
-    usuario = models.ForeignKey(Usuario, models.PROTECT)
+    usuario = models.ForeignKey(User, models.PROTECT)
+    status = models.CharField(max_length=20, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Calibracoes'
@@ -67,7 +69,7 @@ class Peso(models.Model):
     status = models.BooleanField(default=True)
     unidade = models.ForeignKey(Unidade, on_delete=models.PROTECT)
     dt_criacao = models.DateTimeField(auto_now=True)
-    usuario = models.ForeignKey(Usuario, models.PROTECT)
+    usuario = models.ForeignKey(User, models.PROTECT)
 
     def __str__(self):
         return f'{self.conjunto.descricao} - {str(self.massa_nominal_g)} {self.unidade.sigla}'  # noqa

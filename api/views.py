@@ -22,6 +22,7 @@ from tabelas.models import Unidade, Desvio
 token = (TokenAuthentication, )
 permission = (IsAuthenticated, )
 
+
 class EmpresaViewSet(viewsets.ModelViewSet):
     queryset = Empresa.objects.all()
     serializer_class = EmpresaSerializer
@@ -34,14 +35,14 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
-    
-    
+
+
 class EquipamentoViewSet(viewsets.ModelViewSet):
     queryset = Equipamento.objects.all()
     serializer_class = EquipamentoSerializer
     authentication_classes = token
     permission_classes = permission
-    
+
 
 class TipoEquipamentoViewSet(viewsets.ModelViewSet):
     queryset = Tipo_equipamento.objects.all()
@@ -83,5 +84,3 @@ class CalibracaoViewSet(viewsets.ModelViewSet):
     serializer_class = CalibracaoSerializer
     authentication_classes = token
     permission_classes = permission
-
-

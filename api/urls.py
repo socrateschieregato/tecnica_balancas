@@ -19,9 +19,9 @@ router.register('equipamentos', EquipamentoViewSet)
 router.register('tipo_equipamentos', TipoEquipamentoViewSet)
 router.register('unidade', UnidadeViewSet)
 router.register('desvio', DesvioViewSet)
-router.register('Peso', PesoViewSet)
-router.register('Certificado', CertificadoViewSet)
-router.register('Calibracao', CalibracaoViewSet)
+router.register('peso', PesoViewSet)
+router.register('certificado', CertificadoViewSet)
+router.register('calibracao', CalibracaoViewSet)
 router.register('users', UserViewSet)
 
 urlpatterns = [

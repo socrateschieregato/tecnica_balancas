@@ -5,13 +5,11 @@ from .models import (
     Departamento,
     Desvio,
     Grupo_Empresas,
-    Unidade,
-    Usuario
+    Unidade
 )
 
 admin.site.register(Cargo)
 admin.site.register(Departamento)
 admin.site.register(Grupo_Empresas)
-admin.site.register(Usuario)
 admin.site.register(Unidade)
 admin.site.register(Desvio)

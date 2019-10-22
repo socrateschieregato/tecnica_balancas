@@ -1,10 +1,8 @@
 from django.db import models
 
-from tabelas.models import Grupo_Empresas
-
-
 tipos_tel = (('1', 'Fone'), ('2', 'Cel'), ('3', 'Outro'))
 tipos_log = (('1', 'Rua'), ('2', 'Av'), ('3', 'Rod'), ('4', 'Outro'))
+
 
 class Empresa(models.Model):
     cpf_cnpj = models.CharField('CPF/CNPJ', max_length=14, unique=True)

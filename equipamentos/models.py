@@ -1,7 +1,8 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 from empresas.models import Empresa
-from tabelas.models import Desvio, Usuario
+from tabelas.models import Desvio
 
 
 class Tipo_equipamento(models.Model):
@@ -18,20 +19,7 @@ class Equipamento(models.Model):
     tipo = models.ForeignKey(Tipo_equipamento, on_delete=models.CASCADE)
     fabricante = models.CharField(max_length=20)
     modelo = models.CharField(max_length=20)
-    escala_ini = models.DecimalField(
-        'Escala Inicial',
-        decimal_places=2,
-        max_digits=14,
-        null=True,
-        blank=True
-    )
-    escala_fim = models.DecimalField(
-        'Escala Final',
-        decimal_places=2,
-        max_digits=14,
-        null=True,
-        blank=True
-    )
+    escala = models.CharField(max_length=30, null=True, blank=True)
     num_serie = models.CharField('Número de Série', max_length=20)
     tag = models.CharField(max_length=10)
     status = models.CharField(
@@ -58,7 +46,8 @@ class Equipamento(models.Model):
         blank=True
     )
     dt_criacao = models.DateTimeField(auto_now=True)
-    usuario = models.ForeignKey(Usuario, models.PROTECT)
+    usuario = models.ForeignKey(User, models.PROTECT)
+    pontos_calib = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
         return self.tipo.descricao + ' - ' + self.num_registro
