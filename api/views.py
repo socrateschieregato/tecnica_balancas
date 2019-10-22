@@ -7,8 +7,6 @@ from api.serializers import (
     EmpresaSerializer,
     UserSerializer,
     EquipamentoSerializer,
-    TipoEquipamentoSerializer,
-    UnidadeSerializer,
     DesvioSerializer,
     PesoSerializer,
     CertificadoSerializer,
@@ -40,20 +38,6 @@ class UserViewSet(viewsets.ModelViewSet):
 class EquipamentoViewSet(viewsets.ModelViewSet):
     queryset = Equipamento.objects.all()
     serializer_class = EquipamentoSerializer
-    authentication_classes = token
-    permission_classes = permission
-
-
-class TipoEquipamentoViewSet(viewsets.ModelViewSet):
-    queryset = Tipo_equipamento.objects.all()
-    serializer_class = TipoEquipamentoSerializer
-    authentication_classes = token
-    permission_classes = permission
-
-
-class UnidadeViewSet(viewsets.ModelViewSet):
-    queryset = Unidade.objects.all()
-    serializer_class = UnidadeSerializer
     authentication_classes = token
     permission_classes = permission
 
