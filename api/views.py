@@ -14,8 +14,8 @@ from api.serializers import (
 )
 from calibracoes.models import Peso, Certificado, Calibracao
 from empresas.models import Empresa
-from equipamentos.models import Equipamento, Tipo_equipamento
-from tabelas.models import Unidade, Desvio
+from equipamentos.models import Equipamento
+from tabelas.models import Desvio
 
 token = (TokenAuthentication, )
 permission = (IsAuthenticated, )
@@ -26,6 +26,7 @@ class EmpresaViewSet(viewsets.ModelViewSet):
     serializer_class = EmpresaSerializer
     authentication_classes = token
     permission_classes = permission
+    lookup_field = "cpf_cnpj"
 
 
 class UserViewSet(viewsets.ModelViewSet):

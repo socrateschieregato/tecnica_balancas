@@ -1,7 +1,7 @@
 from django.db import models
 
-tipos_tel = (('1', 'Fone'), ('2', 'Cel'), ('3', 'Outro'))
-tipos_log = (('1', 'Rua'), ('2', 'Av'), ('3', 'Rod'), ('4', 'Outro'))
+tipos_tel = (('Fone', 'Fone'), ('Cel', 'Cel'), ('Outro', 'Outro'))
+tipos_log = (('Rua', 'Rua'), ('Av', 'Av'), ('Rod', 'Rod'), ('Outro', 'Outro'))
 
 
 class Empresa(models.Model):
