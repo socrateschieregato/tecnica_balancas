@@ -7,7 +7,6 @@ from api.serializers import (
     EmpresaSerializer,
     UserSerializer,
     EquipamentoSerializer,
-    DesvioSerializer,
     PesoSerializer,
     CertificadoSerializer,
     CalibracaoSerializer
@@ -15,7 +14,6 @@ from api.serializers import (
 from calibracoes.models import Peso, Certificado, Calibracao
 from empresas.models import Empresa
 from equipamentos.models import Equipamento
-from tabelas.models import Desvio
 
 token = (TokenAuthentication, )
 permission = (IsAuthenticated, )
@@ -39,13 +37,6 @@ class UserViewSet(viewsets.ModelViewSet):
 class EquipamentoViewSet(viewsets.ModelViewSet):
     queryset = Equipamento.objects.all()
     serializer_class = EquipamentoSerializer
-    authentication_classes = token
-    permission_classes = permission
-
-
-class DesvioViewSet(viewsets.ModelViewSet):
-    queryset = Desvio.objects.all()
-    serializer_class = DesvioSerializer
     authentication_classes = token
     permission_classes = permission
 

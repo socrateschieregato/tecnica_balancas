@@ -5,7 +5,6 @@ from api.views import (
     EmpresaViewSet,
     UserViewSet,
     EquipamentoViewSet,
-    DesvioViewSet,
     PesoViewSet,
     CertificadoViewSet,
     CalibracaoViewSet
@@ -14,7 +13,6 @@ from api.views import (
 router = routers.DefaultRouter()
 router.register('empresas', EmpresaViewSet)
 router.register('equipamentos', EquipamentoViewSet)
-router.register('desvio', DesvioViewSet)
 router.register('peso', PesoViewSet)
 router.register('certificado', CertificadoViewSet)
 router.register('calibracao', CalibracaoViewSet)

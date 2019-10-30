@@ -5,7 +5,6 @@ from rest_framework.authtoken.models import Token
 from calibracoes.models import Peso, Certificado, Calibracao
 from empresas.models import Empresa
 from equipamentos.models import Equipamento
-from tabelas.models import Desvio
 
 
 class EmpresaSerializer(serializers.ModelSerializer):
@@ -29,12 +28,6 @@ class UserSerializer(serializers.ModelSerializer):
 class EquipamentoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Equipamento
-        fields = '__all__'
-
-
-class DesvioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Desvio
         fields = '__all__'
 
 
