@@ -3,6 +3,7 @@ from django.db import models
 
 from equipamentos.models import Equipamento
 from tabelas.models import Unidade
+from tecnica_balancas.settings import WEIGHT_MATERIALS, WEIGHT_CLASS
 
 
 class Conjunto(models.Model):
@@ -53,7 +54,7 @@ class Calibracao(models.Model):
 class Peso(models.Model):
     massa_nominal_g = models.FloatField()
     marcacao = models.CharField(max_length=20)
-    classe = models.CharField(max_length=20, null=True, blank=True)
+    classe = models.CharField(max_length=20, choices=WEIGHT_CLASS, null=True, blank=True)
     identificacao = models.CharField(max_length=20)
     conjunto = models.ForeignKey(Conjunto, on_delete=models.PROTECT)
     massa_conv_mg_1 = models.FloatField()
@@ -62,7 +63,7 @@ class Peso(models.Model):
     erro_2 = models.FloatField()
     dt_calibracao = models.DateField()
     validade = models.DateField()
-    material = models.CharField(max_length=20)
+    material = models.CharField(max_length=20, choices=WEIGHT_MATERIALS)
     incerteza_mg = models.FloatField()
     certificado = models.CharField(max_length=20)
     fator_abrangencia = models.FloatField()

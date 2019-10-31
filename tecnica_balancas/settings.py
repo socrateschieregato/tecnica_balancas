@@ -110,3 +110,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000"
 ]
+
+WEIGHT_MATERIALS = [
+    'Aço Inoxidável',
+    'Ferro Fundido'
+]
+
+WEIGHT_CLASS = [
+    'E1',
+    'E2',
+    'F1',
+    'F2',
+    'M1',
+    'M2'
+]
