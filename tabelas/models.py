@@ -8,23 +8,6 @@ class Departamento(models.Model):
         return self.descricao
 
 
-class Cargo(models.Model):
-    descricao = models.CharField(max_length=20)
-
-    def __str__(self):
-        return self.descricao
-
-
-class Grupo_Empresas(models.Model):
-    descricao = models.CharField(max_length=20)
-
-    class Meta:
-        verbose_name_plural = 'Grupo_Empresas'
-
-    def __str__(self):
-        return self.descricao
-
-
 class Unidade(models.Model):
     sigla = models.CharField(max_length=3)
     descricao = models.CharField(max_length=20)
@@ -39,3 +22,10 @@ class Desvio(models.Model):
 
     def __str__(self):
         return str(self.valor) + ' ' + self.un.descricao
+
+
+class Conjunto(models.Model):
+    descricao = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.descricao
