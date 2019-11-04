@@ -13,7 +13,6 @@ class Tipo_equipamento(models.Model):
 
 
 class Equipamento(models.Model):
-    status_choices = (('1', 'Ativo'), ('2', 'Inativo'), ('3', 'Pendente'))
     empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT)
     num_registro = models.CharField('Número de Registro', max_length=20, null=True, blank=True)
     tipo = models.ForeignKey(Tipo_equipamento, on_delete=models.CASCADE, null=True, blank=True)
@@ -22,12 +21,7 @@ class Equipamento(models.Model):
     escala = models.CharField(max_length=30, null=True, blank=True)
     num_serie = models.CharField('Número de Série', max_length=20, null=True, blank=True)
     tag = models.CharField(max_length=10, null=True, blank=True)
-    status = models.CharField(
-        'Status',
-        choices=status_choices,
-        default=1,
-        max_length=10
-    )
+    status = models.BooleanField(default=True)
     desvio = models.ForeignKey(Desvio, on_delete=models.PROTECT, null=True, blank=True)
     n_estrategia = models.IntegerField(null=True, blank=True)
     departamento = models.CharField('Departamento', max_length=20, null=True, blank=True)
