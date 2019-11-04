@@ -13,7 +13,7 @@ class Unidade(models.Model):
     descricao = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.descricao
+        return self.sigla
 
 
 class Desvio(models.Model):

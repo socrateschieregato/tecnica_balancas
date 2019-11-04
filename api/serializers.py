@@ -26,6 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class EquipamentoSerializer(serializers.ModelSerializer):
+    empresa = serializers.SlugRelatedField(many=False, read_only=True, slug_field='empresa')
     class Meta:
         model = Equipamento
         fields = '__all__'
