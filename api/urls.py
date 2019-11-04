@@ -13,9 +13,9 @@ from api.views import (
 router = routers.DefaultRouter()
 router.register('empresas', EmpresaViewSet)
 router.register('equipamentos', EquipamentoViewSet)
-router.register('peso', PesoViewSet)
-router.register('certificado', CertificadoViewSet)
-router.register('calibracao', CalibracaoViewSet)
+router.register('pesos', PesoViewSet)
+router.register('certificados', CertificadoViewSet)
+router.register('calibracoes', CalibracaoViewSet)
 router.register('users', UserViewSet)
 
 urlpatterns = [

@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class WeightClass(Enum):
     E1 = 'E1'
     E2 = 'E2'
@@ -11,6 +12,7 @@ class WeightClass(Enum):
     @classmethod
     def choices(cls):
         return [(key.value, key.name) for key in cls]
+
 
 class WeightMaterials(Enum):
     ACO_INOXIDAVEL = 'Aço Inoxidável'
