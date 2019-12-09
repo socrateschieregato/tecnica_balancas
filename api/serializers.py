@@ -30,6 +30,7 @@ class EquipamentoSerializer(serializers.ModelSerializer):
     tipo = serializers.SlugRelatedField(many=False, read_only=True, slug_field='descricao')
     desvio = serializers.SlugRelatedField(many=False, read_only=True, slug_field='valor')
     usuario = serializers.SlugRelatedField(many=False, read_only=True, slug_field='username')
+
     class Meta:
         model = Equipamento
         fields = '__all__'
