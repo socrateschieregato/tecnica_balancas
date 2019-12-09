@@ -9,7 +9,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.6, 3.7]
+        python-version: [3.7]
 
     steps:
     - uses: actions/checkout@v1
@@ -32,3 +32,5 @@ jobs:
       run: |
         pip install pytest
         pytest
+      env:
+        SECRET_KEY: )$=8)k*4q-jia#o8rmffg6ssgyw_qqs8fe_ji049gc9+%sh3wn
