@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+from calibracoes.enums import StatusClass
 from equipamentos.models import Equipamento
 from tabelas.enums import WeightClass, WeightMaterials
 from tabelas.models import Unidade, Conjunto
@@ -35,7 +36,7 @@ class Calibracao(models.Model):
     num_os = models.IntegerField('Número OS', null=True, blank=True)
     dt_criacao = models.DateTimeField(auto_now=True)
     usuario = models.ForeignKey(User, models.PROTECT)
-    status = models.CharField(max_length=20, null=True, blank=True)
+    status = models.CharField(max_length=20, choices=StatusClass.choices(), null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Calibracoes'
