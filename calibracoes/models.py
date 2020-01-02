@@ -61,7 +61,7 @@ class Peso(models.Model):
     incerteza_mg = models.FloatField()
     certificado = models.CharField(max_length=20)
     fator_abrangencia = models.FloatField()
-    status = models.BooleanField(default=True)
+    ativo = models.BooleanField(default=True)
     unidade = models.ForeignKey(Unidade, on_delete=models.PROTECT)
     dt_criacao = models.DateTimeField(auto_now=True)
     usuario = models.ForeignKey(User, models.PROTECT)
